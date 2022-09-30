@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Search Bar</title>
+    <link rel="stylesheet" href="JSSBstyles.css">
+    <link rel="stylesheet" href="../Styles.css">
+    <script src="searchScript.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="Greenhood logo[1362].png" alt="Personal logo">
+        <h1 class="title">JavaScript Search Bar</h1>
+    </header>
+
+    <main>
+
+        <section class="div-single">
+            <div class="single">
+
+                <h3>All the names in the search are taken from the website JSON Placeholder API: <a
+                        href="url">"https://jsonplaceholder.typicode.com</a></h3><br>
+                <div class="search-wrapper">
+                    <label for="search">Search User: </label>
+                    <input type="search" id="search" data-search>
+                </div><br>
+
+                <div class="user-cards" data-user-cards-container>
+                </div>
+                <template data-user-template>
+                    <div class="card">
+                        <div class="header" data-header></div>
+                        <div class="body" data-body></div>
+                    </div>
+                </template><br>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>All of the code used to build everything on here can be see at my Github link: <a
+                href="https://github.com/mbarber84">https://github.com/mbarber84</a></h3>
+    </footer>
+
+</body>
+
+</html>
