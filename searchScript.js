@@ -7,7 +7,7 @@ let users = []
 searchInput.addEventListener("input", e => {
     const value = e.target.value.toLowerCase()
     users.forEach(user => {
-        const isVisible = user.name.toLowerCase().includes(value) || user.email.toLowerCase().includes(value)
+        const isVisible = user.name.toLowerCase().includes(value) || user.email.toLowerCase().includes(value) || user.phone.toLowerCase().includes(value)
         user.element.classList.toggle("hide", !isVisible)
     })
 })
@@ -20,10 +20,12 @@ fetch("https://jsonplaceholder.typicode.com/users")
         const card = userCardTemplate.content.cloneNode(true).children[0]
         const header = card.querySelector("[data-header]")
         const body = card.querySelector("[data-body]")
+        const body1 = card.querySelector("[data-body1]")
         header.textContent = user.name
         body.textContent = user.email
+        body1.textContent = user.phone
         userCardContainer.append(card)
-        return{ name: user.name, email: user.email, element: card }
+        return{ name: user.name, email: user.email, phone: user.phone, element: card }
         })
     })
 
