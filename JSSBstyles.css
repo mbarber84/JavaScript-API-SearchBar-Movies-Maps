@@ -1,6 +1,6 @@
 html,
 body {
-    margin: 0;
+    margin: 15px;
     padding: 0;
 }
 
@@ -71,5 +71,7 @@ label{
   }
 
 footer {
-    margin: 20px;
+    position: absolute;
+    bottom: 10px;
+    height: 3rem;     
 }
