@@ -58,25 +58,14 @@ label{
     color: #777;
 }
 
+.card>.body1 {
+    font-size: 0.8rem;
+    color: #777;
+}
 .hide {
     display: none;
 }
-
-a.mbHome{
-    border-bottom: 2.5px solid transparent;
-    position:absolute;
-    right:50px;
-    top:50px;
-    color: white;
-    }
-    .mbHome:hover {
-      border: 5px solid #FF7A00;
-    }
-  img.homelogo{
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  .icon{
+.icon{
     width: 2cm;
     height: 2cm;
   }
