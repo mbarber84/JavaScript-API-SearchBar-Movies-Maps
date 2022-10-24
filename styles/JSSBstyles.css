@@ -1,0 +1,117 @@
+html,
+body {
+    margin: 15px;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid blueviolet;
+
+}
+
+.logo {
+    width: 2.5cm;
+    height: auto;
+    border-radius: 50%;
+    text-align: center;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.356);
+}
+
+.search-wrapper {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+input {
+    font-size: 2rem;
+    margin: 0 auto;
+    width: 575px;
+    border-radius: 30px;
+    border: 1px solid #dcdcdc;
+    padding-left: 20px;
+}
+
+input:hover {
+    box-shadow: 1px 1px 8px 1px blueviolet;
+}
+
+input:focus-within {
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+    outline: none;
+}
+
+label {
+    text-align: center;
+    color: rgb(59, 49, 49);
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.user-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+}
+
+.card {
+    border: 1px solid rgb(58, 2, 70);
+    background-color:#6B19B8;
+    padding: .5rem;
+}
+
+.card>.header {
+    margin-bottom: .25rem;
+    color: #FFFFFF;
+}
+
+.card>.body {
+    font-size: 0.8rem;
+    color: #F5F5F5;
+}
+
+.card>.body1 {
+    font-size: 0.8rem;
+    color: rgb(255, 254, 254);
+}
+
+.hide {
+    display: none;
+}
+
+.icon {
+    width: 2cm;
+    height: 2cm;
+}
+
+.album-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+}
+
+.card-al {
+    border: 1px solid rgb(2, 70, 8);
+    background-color: rgb(43, 226, 98);
+    padding: .5rem;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+}
+
+/*footer {
+    position: absolute;
+    bottom: 10px;
+    height: 3rem;
+}*/
