@@ -22,12 +22,14 @@ searchInput.addEventListener("input", e => {
         const isVisible = validUser || validEmail || validPhone;
         user.element.classList.toggle("hide", !isVisible);
     })
-    albums.forEach(albums => {
+    //For if a search bar is added to albums ****
+    
+    /*albums.forEach(albums => {
         const validUserId = albums.userId.toLowerCase().includes(value);
         const validTitle = albums.title.toLowerCase().includes(value);
         const isVisible = validUserId || validTitle;
         albums.element.classList.toggle("hide", !isVisible);
-    })
+    })*/
 });
 
 
