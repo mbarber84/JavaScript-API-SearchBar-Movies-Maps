@@ -23,7 +23,7 @@ searchInput.addEventListener("input", e => {
         user.element.classList.toggle("hide", !isVisible);
     })
     //For if a search bar is added to albums ****
-    
+
     /*albums.forEach(albums => {
         const validUserId = albums.userId.toLowerCase().includes(value);
         const validTitle = albums.title.toLowerCase().includes(value);
@@ -63,7 +63,7 @@ searchInput.addEventListener("input", e => {
         })
     })*/
 
-
+//Function using AJAX fetch, converting the response to JSON
 function request(url, callback) {
     fetch(url)
         .then(res => res.json())
