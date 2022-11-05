@@ -81,22 +81,24 @@ function handleUserData(data) {
         const header = card.querySelector("[data-header]")
         const body = card.querySelector("[data-body]")
         const body1 = card.querySelector("[data-body1]")
-        header.textContent = user.name
-        body.textContent = user.email
-        body1.textContent = user.phone
+        const {name, email, phone} = user //destructured from .user code
+        header.textContent = name
+        body.textContent = email
+        body1.textContent = phone
         userCardContainer.append(card)
-        return { name: user.name, email: user.email, phone: user.phone, element: card }
+        return { name, email, phone, element: card }
     })
 };
     function handleAlbumData(data){
 
         albums = data.map(albums => {
-        const card = albumCardTemplate.content.cloneNode(true).children[0]
-        const header = card.querySelector("[data-header]")
-        const body1 = card.querySelector("[data-body1]")
-        header.textContent = albums.userId
-        body1.textContent = albums.title
-        albumCardContainer.append(card)
-        return { userId: albums.userId, title: albums.title, element: card }
+            const card = albumCardTemplate.content.cloneNode(true).children[0]
+            const header = card.querySelector("[data-header]")
+            const body1 = card.querySelector("[data-body1]")
+            const {userId, title} = albums //destructured from .albums code
+            header.textContent = userId
+            body1.textContent = title
+            albumCardContainer.append(card)
+            return { userId, title, element: card }
     })
 };
