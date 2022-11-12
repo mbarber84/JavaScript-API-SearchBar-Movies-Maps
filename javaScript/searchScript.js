@@ -1,37 +1,19 @@
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
-const albumCardTemplate = document.querySelector("[data-album-template]");
-const albumCardContainer = document.querySelector("[data-album-cards-container]");
 
-// IIFE
-// (function() {
-//     console.log('This is immediately invoked')
-// })()
+let users = [];
 
-
-let users = []
-let albums = []
-
-searchInput.addEventListener("input", e => {
-    const value = e.target.value.toLowerCase()
-    users.forEach(user => {
-        const validUser = user.name.toLowerCase().includes(value);
-        const validEmail = user.email.toLowerCase().includes(value);
-        const validPhone = user.phone.toLowerCase().includes(value);
-        const isVisible = validUser || validEmail || validPhone;
-        user.element.classList.toggle("hide", !isVisible);
-    })
-    //For if a search bar is added to albums ****
-
-    /*albums.forEach(albums => {
-        const validUserId = albums.userId.toLowerCase().includes(value);
-        const validTitle = albums.title.toLowerCase().includes(value);
-        const isVisible = validUserId || validTitle;
-        albums.element.classList.toggle("hide", !isVisible);
-    })*/
+searchInput.addEventListener("input", (e) => {
+  const value = e.target.value.toLowerCase();
+  users.forEach((user) => {
+    const validUser = user.name.toLowerCase().includes(value);
+    const validEmail = user.email.toLowerCase().includes(value);
+    const validPhone = user.phone.toLowerCase().includes(value);
+    const isVisible = validUser || validEmail || validPhone;
+    user.element.classList.toggle("hide", !isVisible);
+  });
 });
-
 
 // fetch("https://jsonplaceholder.typicode.com/users")
 //     .then(res => res.json())
@@ -49,56 +31,53 @@ searchInput.addEventListener("input", e => {
 //         })
 //     })
 
-/*fetch("https://jsonplaceholder.typicode.com/albums")
-    .then(res => res.json())
-    .then(data => {
-        albums = data.map(albums => {
-            const card = albumCardTemplate.content.cloneNode(true).children[0]
-            const header = card.querySelector("[data-header]")
-            const body1 = card.querySelector("[data-body1]")
-            header.textContent = albums.userId
-            body1.textContent = albums.title
-            albumCardContainer.append(card)
-            return { userId: albums.userId, title: albums.title, element: card }
-        })
-    })*/
-
-//Function using AJAX fetch, converting the response to JSON
 function request(url, callback) {
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            callback(data)
-        })
-};
-request("https://jsonplaceholder.typicode.com/users",handleUserData);
-request("https://jsonplaceholder.typicode.com/albums",handleAlbumData);
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      callback(data);
+    });
+}
+request("https://jsonplaceholder.typicode.com/users", handleUserData);
 
 function handleUserData(data) {
-    
-    users = data.map(user => {
-        const card = userCardTemplate.content.cloneNode(true).children[0]
-        const header = card.querySelector("[data-header]")
-        const body = card.querySelector("[data-body]")
-        const body1 = card.querySelector("[data-body1]")
-        const {name, email, phone} = user //destructured from .user code
-        header.textContent = name
-        body.textContent = email
-        body1.textContent = phone
-        userCardContainer.append(card)
-        return { name, email, phone, element: card }
-    })
-};
-    function handleAlbumData(data){
+  users = data.map((user) => {
+    //Arrow function
+    const card = userCardTemplate.content.cloneNode(true).children[0];
+    const header = card.querySelector("[data-header]");
+    const body = card.querySelector("[data-body]");
+    const body1 = card.querySelector("[data-body1]");
+    const { name, email, phone } = user; //destructured from .user code
+    header.textContent = name;
+    body.textContent = email;
+    body1.textContent = phone;
+    userCardContainer.append(card);
+    return { name, email, phone, element: card };
+  });
+}
 
-        albums = data.map(albums => {
-            const card = albumCardTemplate.content.cloneNode(true).children[0]
-            const header = card.querySelector("[data-header]")
-            const body1 = card.querySelector("[data-body1]")
-            const {userId, title} = albums //destructured from .albums code
-            header.textContent = userId
-            body1.textContent = title
-            albumCardContainer.append(card)
-            return { userId, title, element: card }
-    })
+//Movies API
+
+const options = {
+  method: "GET", //CORS-safelisted method is a method that is `GET`
+  headers: {
+    "X-RapidAPI-Key": "9098a78762msh9bacd7cc59cbbb9p1094c1jsncc142a8ed6fb",
+    "X-RapidAPI-Host": "movies-app1.p.rapidapi.com",
+  },
 };
+
+fetch("https://movies-app1.p.rapidapi.com/api/movies", options)
+  .then((response) => response.json())
+  .then((data) => {
+    const list = data.results;
+
+    list.map((results) => {
+      //Arrow function
+      const name = results.titleOriginal;
+      const poster = results.image;
+      const date = results.release;
+      const movie = `<li><img src="${poster}" alt="movie poster"><h2>${name}</h2><h3>${date}</h3></li>`;
+      document.querySelector(".movies").innerHTML += movie; // places the HTML above with the data on to the HTML page
+    });
+  })
+  .catch((err) => console.error(err));

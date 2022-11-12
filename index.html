@@ -2,81 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Search Bar</title>
-    <link rel="stylesheet" href="/styles/JSSBstyles.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three JavaScript API's</title>
+    <link rel="stylesheet" href="/styles/JSSBstyles.css" />
     <script src="/javaScript/searchScript.js" defer></script>
     <script src="/javaScript/map.js" defer></script>
 </head>
 
 <body>
-
     <header>
-        <img class="logo" src="/images/Greenhood logo[1362].png" alt="Personal logo">
-        <h1 class="title">JavaScript Search Bar</h1><a href="https://github.com/mbarber84"><img class="icon"
-                src="/images/github-logo.jpg" alt="github-logo"></a>
+        <img class="logo" src="/images/Greenhood logo[1362].png" alt="Personal logo" />
+        <h1 class="title">JavaScript API</h1>
+        <a href="https://github.com/mbarber84"><img class="icon" src="/images/github-logo.jpg" alt="github-logo" /></a>
     </header>
 
     <main>
-
         <section class="div-single">
-            <div class="single"><br>
-
-
+            <div class="single">
+                <br />
 
                 <div class="search-wrapper">
                     <label for="search">Search User: </label>
-                    <input type="search" id="search" data-search>
-                </div><br>
-
-                <div class="user-cards" data-user-cards-container>
+                    <input type="search" id="search" data-search />
                 </div>
-               
+                <br />
 
+                <div class="user-cards" data-user-cards-container></div>
             </div>
         </section>
-        <hr>
-        <section class="div-single">
-            <div class="single"><br>
-                <h1>User Id and Albums: </h1>
-                
-                <div class="album-cards" data-album-cards-container>
-                </div>
-                
+        <hr />
+        <section class=MDBMovies>
+            <div>
+                <br />
+                <h1>Movies</h1>
+                <div class="movies"></div>
 
-            </div>
+
         </section>
-        <hr>
-        <section>
-
-            <h1>My Google Map</h1>
-            <div id="map">
-
-            </div>
+        <hr />
+        <section class="googlemap">
+            <h1 contenteditable="true">My Google Map</h1>
+            <div id="map"></div>
 
             <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmMVMvHviE466X6hOuZ39UvistW9bn-0I&callback=initMap&v=weekly"
                 defer></script>
-
-
         </section>
-        <hr>
+        <hr />
     </main>
 
     <footer>
-        <h2>All the names in the search are taken from the website JSON Placeholder API: <a
-                href="https://jsonplaceholder.typicode.com/">"{JSON} Placeholder"</a></h2>
-        <h2>Google Map API can be found at: <a href="https://developers.google.com/maps">developer.google.com/maps</a></h2>
-        <br>
+        <h2>
+            All the names in the search are taken from the website JSON Placeholder
+            API:
+            <a href="https://jsonplaceholder.typicode.com/">"{JSON} Placeholder"</a>
+        </h2>
+        <h2>
+            Movies API can be found at:
+            <a href="https://rapidapi.com/dotero27022001/api/movies-app1">Rapid API</a>
+        </h2>
+        <h2>
+            Google Map API can be found at:
+            <a href="https://maps.googleapis.com/maps/api">developer.google.com</a>
+        </h2>
     </footer>
-    <template data-album-template>
-        <div class="card-al">
-            <div class="header" data-header></div>
-            <div class="body1" data-body1></div>
-        </div>
-    </template>
     <template data-user-template>
         <div class="card">
             <div class="header" data-header></div>
