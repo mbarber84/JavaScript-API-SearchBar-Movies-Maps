@@ -13,27 +13,27 @@
 
 <body>
     <header>
-        <img class="logo" src="/images/Greenhood logo[1362].png" alt="Personal logo" />
+        <img class="logo" src="/images/Greenhood logo[1362].png" alt="Personal logo" /><!--My own personal logo-->
         <h1 class="title">JavaScript API</h1>
-        <a href="https://github.com/mbarber84"><img class="icon" src="/images/github-logo.jpg" alt="github-logo" /></a>
+        <a href="https://github.com/mbarber84"><img class="icon" src="/images/github-logo.jpg" alt="github-logo" /></a><!--Link to my github-->
     </header>
 
     <main>
-        <section class="div-single">
+            <section class="div-single">
             <div class="single">
                 <br />
 
-                <div class="search-wrapper">
+                <div class="search-wrapper"><!--Search Bar-->
                     <label for="search">Search User: </label>
                     <input type="search" id="search" data-search />
                 </div>
                 <br />
 
-                <div class="user-cards" data-user-cards-container></div>
+                <div class="user-cards" data-user-cards-container></div><!--Where the card template will be displayed-->
             </div>
         </section>
         <hr />
-        <section class=MDBMovies>
+        <section class=MDBMovies><!--The HTML for this section is found in the JavaScript file searchScript.js-->
             <div>
                 <br />
                 <h1>Movies</h1>
@@ -48,13 +48,13 @@
 
             <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmMVMvHviE466X6hOuZ39UvistW9bn-0I&callback=initMap&v=weekly"
-                defer></script>
+                defer></script><!--This is the API key for the google map and would NOT normally be found in this file for security reasons, but as the tutors need access to everything it has been placed here purely for educational reasons-->
         </section>
         <hr />
     </main>
 
     <footer>
-        <h2>
+        <h2><!--Links for each of the API pages used-->
             All the names in the search are taken from the website JSON Placeholder
             API:
             <a href="https://jsonplaceholder.typicode.com/">"{JSON} Placeholder"</a>
@@ -68,9 +68,9 @@
             <a href="https://maps.googleapis.com/maps/api">developer.google.com</a>
         </h2>
     </footer>
-    <template data-user-template>
+    <template data-user-template><!--This is the card template used in the first section--><!--As you can see it is out side of the main code but still inside of the body of the HTML, If you look at earlier commits in GitHub you will find a second card template that was used for Albums showing how multiple can be used-->
         <div class="card">
-            <div class="header" data-header></div>
+            <div class="header" data-header></div><!--Each class is named and matched through a const variable in the searchScript.js file to display the data in the correct place of the card-->
             <div class="body" data-body></div>
             <div class="body1" data-body1></div>
         </div>
