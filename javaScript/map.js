@@ -8,7 +8,10 @@ function initMap() {
    }
    //new map instance
    var map = new google.maps.Map(document.getElementById('map'), options);
-   /*
+
+
+   /*This is the code before destructuring
+
    // add marker ucen
    var marker = new google.maps.Marker({
     position:{lat: 53.466843,lng: -2.234597},
@@ -24,12 +27,9 @@ function initMap() {
    });
    */
 
-
+   /**After destructuring the code is becomes cleaner and easier to understand */
    //calling marker function
-   addMarker({coords:{lat:53.466843,lng:-2.234597}, content:'<h1>UCEN Manchester</h1><br/><p>Openshaw Campus, Ashton Old Rd, Openshaw, Manchester M11 2WH</P>'});//ucen
-    
-   /*addMarker({coords:{lat:53.4084,lng:2.5930}});//WVR
-   addMarker({coords:{lat:53.4742,lng:2.2510}});//Deansgate station*/
+   addMarker({coords:{lat:53.466843,lng:-2.234597}, content:'<h1>UCEN Manchester</h1><br/><p>Openshaw Campus, Ashton Old Rd, Openshaw, Manchester M11 2WH</P>'});//UCEN Address
 
    //add marker function
    function addMarker(props){
