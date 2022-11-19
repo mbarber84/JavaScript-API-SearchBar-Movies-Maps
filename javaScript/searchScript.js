@@ -3,17 +3,20 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
 
 let users = [];
-
-searchInput.addEventListener("input", (e) => {
+/*Search bar - This has an event listener to see what the user types in to the input area and changes everything to lowercase*/
+searchInput.addEventListener("input", (e) => { /**Fat Arrow function */
   const value = e.target.value.toLowerCase();
-  users.forEach((user) => {
+  users.forEach((user) => { /** .forEach() method executes a callback function on each of the elements from 'user' */
+    /**Nested Fat Arrow function */
     const validUser = user.name.toLowerCase().includes(value);
     const validEmail = user.email.toLowerCase().includes(value);
     const validPhone = user.phone.toLowerCase().includes(value);
     const isVisible = validUser || validEmail || validPhone;
-    user.element.classList.toggle("hide", !isVisible);
+    user.element.classList.toggle("hide", !isVisible);/**If the data doesn't match what is typed in by the user it is NOT visible (!isVisible) */
   });
 });
+
+/**This is the long way of coding out the data request before destructuring*/
 
 // fetch("https://jsonplaceholder.typicode.com/users")
 //     .then(res => res.json())
@@ -31,8 +34,9 @@ searchInput.addEventListener("input", (e) => {
 //         })
 //     })
 
+/**This is the code after destructuring */
 function request(url, callback) {
-  fetch(url)
+  fetch(url)/**Fetch is demonstrating Asynchronous JavaScript And XML*/
     .then((res) => res.json())
     .then((data) => {
       callback(data);
@@ -41,18 +45,17 @@ function request(url, callback) {
 request("https://jsonplaceholder.typicode.com/users", handleUserData);
 
 function handleUserData(data) {
-  users = data.map((user) => {
-    //Arrow function
+  users = data.map((user) => {/**Fat Arrow function */
     const card = userCardTemplate.content.cloneNode(true).children[0];
-    const header = card.querySelector("[data-header]");
+    const header = card.querySelector("[data-header]");/**As spoke about in the HTML file you can see the card template being used here */
     const body = card.querySelector("[data-body]");
     const body1 = card.querySelector("[data-body1]");
-    const { name, email, phone } = user; //destructured from .user code
+    const { name, email, phone } = user;
     header.textContent = name;
     body.textContent = email;
     body1.textContent = phone;
     userCardContainer.append(card);
-    return { name, email, phone, element: card };
+    return { name, email, phone, element: card }; /**This is the data returned to the HTML page using the card template occupied with the data requested from the API*/
   });
 }
 
@@ -66,13 +69,12 @@ const options = {
   },
 };
 
-fetch("https://movies-app1.p.rapidapi.com/api/movies", options)
+fetch("https://movies-app1.p.rapidapi.com/api/movies", options)/**Again Fetch is demonstrating Asynchronous JavaScript And XML*/
   .then((response) => response.json())
   .then((data) => {
     const list = data.results;
 
-    list.map((results) => {
-      //Arrow function
+    list.map((results) => {/**.map() method executes a callback function on each element of the results */
       const name = results.titleOriginal;
       const poster = results.image;
       const date = results.release;
